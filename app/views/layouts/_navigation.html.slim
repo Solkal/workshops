@@ -9,3 +9,6 @@ nav.top-bar[data-topbar]
   .top-bar-section
     ul
       == render 'layouts/navigation_links'
+  .top-bar-section.right
+    ul
+      li= link_to "Sign out", destroy_user_session_path, method: :delete if current_user
