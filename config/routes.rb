@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'visitors#index'
   resources :users, only: 'index'
-  resources :images, only: [:create, :new]
+  resources :images, only: [:destroy, :create, :new]
 end

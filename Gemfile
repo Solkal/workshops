@@ -17,6 +17,7 @@ gem 'slim-rails'
 gem 'therubyracer', :platform=>:ruby
 gem 'devise'
 gem "paperclip", "~> 4.2"
+gem "cancan"
 
 group :development do
   gem 'better_errors'
