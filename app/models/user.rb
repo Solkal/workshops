@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :images
+
+
+  def admin?
+    id == 1
+  end
 end

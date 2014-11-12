@@ -1,9 +1,18 @@
 h3 add photo:
 
-li= link_to "Add photo", new_image_path, class: "button tiny"
-ul
-  - @images.each do |image|
-    - if image.photo.present?
-      li= 
+- if current_user.admin?
+  - @users.each do |user|
+    - user.images.each do |image|
+      li=
       img src= image.photo.url
-      = link_to "delete", image_path(image), class: "buttony tiny", method: :delete
+        = link_to "main page"
+        | &nbsp
+        = link_to "trash"
+- else
+  li= link_to "Add photo", new_image_path, class: "button tiny"
+  ul
+    - @images.each do |image|
+      - if image.photo.present?
+        li= 
+        img src= image.photo.url
+        = link_to "delete", image_path(image), class: "buttony tiny", method: :delete
