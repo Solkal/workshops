@@ -22,6 +22,18 @@ class ImagesController < ApplicationController
     redirect_to users_path
   end
 
+  def trash
+    @image = Image.find(params[:id])
+    @image.update(trash: true)
+    redirect_to users_path
+  end
+
+  def main_page
+    @image = Image.find(params[:id])
+    @image.update(main_page: true)
+    redirect_to users_path
+  end
+
   private
 
   def image_params

@@ -1,0 +1,6 @@
+<h3>Welcome</h3>
+- @users.each do |user|
+  - user.images.each do |image|
+    - if image.main_page == true && image.photo.present?
+      li=
+      img src= image.photo.url

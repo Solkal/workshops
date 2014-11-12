@@ -11,4 +11,5 @@ nav.top-bar[data-topbar]
       == render 'layouts/navigation_links'
   .top-bar-section.right
     ul
+      li= link_to "Sing in", new_user_registration_path if !current_user
       li= link_to "Sign out", destroy_user_session_path, method: :delete if current_user
