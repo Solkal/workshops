@@ -34,6 +34,20 @@ class ImagesController < ApplicationController
     redirect_to users_path
   end
 
+  def like
+    @image = Image.find(params[:id])
+    @image.like += 1
+    @image.save
+    redirect_to root_path
+  end
+
+  def dislike
+    @image = Image.find(params[:id])
+    @image.dislike += 1
+    @image.save
+    redirect_to root_path
+  end
+
   private
 
   def image_params

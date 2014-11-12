@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: 'index'
   resources :images, only: [:destroy, :create, :new] do
     member do
-      post :trash, :main_page
+      post :trash, :main_page, :like, :dislike
     end
   end
 end

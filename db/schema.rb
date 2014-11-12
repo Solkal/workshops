@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112095246) do
+ActiveRecord::Schema.define(version: 20141112134632) do
 
   create_table "images", force: true do |t|
     t.integer  "user_id"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20141112095246) do
     t.datetime "photo_updated_at"
     t.boolean  "trash",              default: false
     t.boolean  "main_page",          default: false
+    t.integer  "like",               default: 0
+    t.integer  "dislike",            default: 0
   end
 
   create_table "users", force: true do |t|
