@@ -1,0 +1,7 @@
+- @users.each do |user|
+    - user.images.each do |image|
+      -if image.trash == false && image.main_page == false 
+        ul.inline-list=
+        img src= image.photo.url
+        = button_to "main page", main_page_image_path(image), class: "button tiny"
+        = button_to "trash", trash_image_path(image), class: "button tiny"
