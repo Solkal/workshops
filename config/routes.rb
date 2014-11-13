@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       post :trash, :main_page, :like, :dislike
     end
   end
+  get 'tags/:tag', to: 'users#index', as: :tag
 end

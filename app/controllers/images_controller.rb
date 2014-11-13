@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = current_user.images.new(image_params)
+    @image = current_user.images.new(image_tag_params)
     if @image.save
       flash[:notice] = "Good work!"
       redirect_to users_path
@@ -52,6 +52,10 @@ class ImagesController < ApplicationController
 
   def image_params
     params.require(:image).permit(:photo)
+  end
+
+  def image_tag_params
+    params.require(:image).permit(:photo, :tag_list)
   end
 
 end

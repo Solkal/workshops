@@ -2,6 +2,6 @@ li= link_to "Add photo", new_image_path, class: "button tiny"
 ul
   - @images.each do |image|
     - if image.photo.present?
-      li= 
+      li= raw image.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
       img src= image.photo.url
       = link_to "delete", image_path(image), class: "buttony tiny", method: :delete

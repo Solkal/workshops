@@ -18,6 +18,7 @@ gem 'therubyracer', :platform=>:ruby
 gem 'devise'
 gem "paperclip", "~> 4.2"
 gem "cancan"
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development do
   gem 'better_errors'
