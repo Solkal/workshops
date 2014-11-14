@@ -1,13 +1,13 @@
 - @users.each do |user|
   - user.images.each do |image|
     - if image.main_page == true && image.photo.present?
+      .small
       li.inline-list=
       li= raw image.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
       img src= image.photo.url
       - if current_user.present?
         li.inline-list=
-        = button_to "Like!", like_image_path(image), class: "button tiny"
-        = button_to "Crap!", dislike_image_path(image), class: "button tiny"
-      li.inline-list=
-      button disabled="true" "Like: #{image.like}"
-      button disabled="true" "Dislike: #{image.dislike}"
+        = link_to "like", vote_image_path(image, type: "like"), method: :post, class: "button tiny"
+        = image.reputation_for(:votes).to_i
+        |  votes 
+        = link_to "dislike", vote_image_path(image, type: "dislike"), method: :post, class: "button tiny"

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: 'index'
   resources :images, only: [:destroy, :create, :new] do
     member do
-      post :trash, :main_page, :like, :dislike
+      post :trash, :main_page, :vote
     end
   end
   get 'tags/:tag', to: 'users#index', as: :tag

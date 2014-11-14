@@ -34,18 +34,11 @@ class ImagesController < ApplicationController
     redirect_to users_path
   end
 
-  def like
+  def vote
+    value = params[:type] == "like" ? 1 : -1
     @image = Image.find(params[:id])
-    @image.like += 1
-    @image.save
-    redirect_to root_path
-  end
-
-  def dislike
-    @image = Image.find(params[:id])
-    @image.dislike += 1
-    @image.save
-    redirect_to root_path
+    @image.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 
   private

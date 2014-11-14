@@ -19,6 +19,7 @@ gem 'devise'
 gem "paperclip", "~> 4.2"
 gem "cancan"
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'activerecord-reputation-system', github:"NARKOZ/activerecord-reputation-system", branch: "rails4"
 
 group :development do
   gem 'better_errors'
